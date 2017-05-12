@@ -1,0 +1,80 @@
+.circle {
+   position: absolute;
+  top:170px;
+  width:640px;
+  height: 640px;
+  z-index:0;
+  background-color: #000;
+  border-radius: 310px;
+}
+
+
+
+.pad {
+  width: 160px;
+  height: 160px;
+  float: left;
+  z-index: 1;
+margin: 80px;
+   
+  filter: alpha(opacity=60);
+  opacity: 0.6;
+}
+
+.arc1 {
+   
+    border-top-left-radius: 300px;
+  background-color: green;
+ 
+}
+
+.arc2 {
+  float: right;
+  border-top-right-radius: 300px;
+  
+  background-color: red;
+  
+  clear: right
+  
+}
+
+.arc3 {
+  float: left;
+  
+  border-bottom-left-radius: 300px;
+  background-color: yellow;
+  clear: left;
+}
+
+.arc4 {
+  float: right;
+  
+  border-bottom-right-radius: 300px;
+  
+  
+  background-color: blue;
+}
+
+#innercircle{
+  position: absolute;
+    background: #a9aaab;
+    border-radius: 50%;
+    height:215px;
+    width:215px;
+     top: 215px;
+  left:215px
+}
+
+#text{
+  text-align: center;
+       
+}
+
+
+
+
+.count{
+  text-align: left
+}
+
+ 

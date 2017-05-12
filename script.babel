@@ -1,0 +1,340 @@
+var onOffBool=false;
+var strict=false;
+ var index=0;
+var c=0;
+var next=0;
+var buttonArray=[]
+function startOver(){
+  buttonArray=[]
+  for  (var x=0;x<21;x++){
+  buttonArray[x]=Math.floor((Math.random() * 4) + 1)
+}
+  pattern(0)
+} 
+var clickArray=[]
+ var allClicks=[]
+
+var start=false;
+
+function onOff(){
+
+ if (onOffBool==false) {
+   document.getElementById('onoff').style.color="rgba(255,0,0,0.6)";
+  onOffBool=true;
+
+  document.getElementById("start").onclick=function(){
+     if (start==false && onOffBool==true){
+    start=true;
+    
+   
+       pattern(0)
+     }
+     else if (start==true && onOffBool==true){
+       startOver()
+     }
+  }   
+  
+document.getElementById("strict").onclick=function(){
+  if (strict==false && onOffBool==true && start==true){
+  strict=true
+    
+    }
+    else if (strict==true && onOffBool==true && start==true){
+strict=false
+  
+    }}   
+
+ }
+  
+  else{
+    document.getElementById('onoff').style.color="rgba(0, 0, 255, 0.3)";
+    onOffBool=false;
+    clickArray=[]
+  var arcs = [];
+
+for (var i = 1; i <= 4; i++) {
+    arcs.push(document.getElementById('ark' + i));
+} document.getElementById("ark1").style.opacity="0.5"  
+    document.getElementById("ark2").style.opacity="0.5" 
+  document.getElementById("ark3").style.opacity="0.5"  
+    document.getElementById("ark4").style.opacity="0.5" 
+  }
+}
+
+
+
+for  (var x=0;x<21;x++){
+  buttonArray[x]=Math.floor((Math.random() * 4) + 1)
+}
+
+ var sndArr=[]
+ 
+ for (var y=0;y<21;y++){
+   sndArr.push(new Audio( 'https://s3.amazonaws.com/freecodecamp/simonSound'+buttonArray[y]+'.mp3') )
+ }
+  
+
+var amount=0;
+var click1=false;
+
+
+
+function pattern(q){
+ 
+  
+  var y=0;
+  
+  if (next==0){  
+  sndArr[0].play();
+  
+  $("#ark"+buttonArray[0]).animate({opacity: "1"},1000)
+  $("#ark"+buttonArray[0]).animate({opacity: "0.5"}, function(){
+  
+
+  
+})}
+
+
+
+
+
+        //Function to  execute animation         and sound of each button, and  pauses       between.  Called in loop function.
+      function setDelay(i) {
+        
+            setTimeout(function(){
+        sndArr[i].play();
+         
+  $("#ark"+buttonArray[i]).animate({opacity: "1"},1000)
+  $("#ark"+buttonArray[i]).animate({opacity: "0.5"} , 100)
+            
+          },1000*i)}
+      
+     
+  
+  document.getElementById("count2").innerHTML=0;
+  
+   
+  
+    
+  var w;
+ 
+
+ 
+
+    //Function to iterate through individal     level
+   
+ 
+  
+    //If the  last  "b"  items  in            clickArray  are  equal  to the first "b"   items in clickArray, clicking the last     button to flash in the most recent         sequence should trigger new sequence.  
+var storage=[];
+  
+  
+   function work(q){
+    console.log(buttonArray)
+     var pushBool=false;
+     var match=[]; 
+     var lastArray=clickArray.slice();
+    
+      
+     allClicks=[]
+     clickArray=[]; document.getElementById("ark1").onclick=function(){
+       
+     if (buttonArray[clickArray.length]!=1){
+       
+       alert("Wrong!")
+       match=[]
+       clickArray=[]
+       pushBool=true;
+       if (strict==true)
+             startOver()
+           else{
+       for (var f=0;f<=q;f++)
+ 
+      setDelay(f);
+     }}
+      else
+        if ( $.inArray(1,lastArray)!== -1  )  { 
+        
+        pushBool=false;
+      new Audio( 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3').play()
+      $("#ark1").animate({opacity: "1"},1000)
+  $("#ark1").animate({opacity: "0.5"} , 100)
+      allClicks.push(1)
+    
+      
+       clickArray.
+       push(1)
+      
+    
+      }
+    
+    
+      
+   
+    }; document.getElementById("ark2").onclick=function(){
+      
+      if (buttonArray[clickArray.length]!=2){
+         
+        (clickArray)
+       alert("Wrong!")
+        
+       match=[]
+       clickArray=[]
+        pushBool=true;
+        if (strict==true)
+             startOver()
+           else{
+             
+        for (var f=0;f<=q;f++)
+ 
+      setDelay(f);
+      }}
+      else
+        if ($.inArray(2,lastArray)!== -1 ){
+       
+        pushBool=false;
+      new Audio( 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3').play()
+      $("#ark2").animate({opacity: "1"},1000)
+  $("#ark2").animate({opacity: "0.5"} , 100)
+                                                          allClicks.push(2)
+       
+         
+         clickArray.push(2)
+         
+         }
+       
+                                        
+                                                         }
+       document.getElementById("ark3").onclick=function(){
+         
+         if (buttonArray[clickArray.length]!=3){
+            
+       alert("Wrong!")
+       match=[]
+       clickArray=[]
+           pushBool=true;
+           if (strict==true)
+             startOver()
+           else{
+           for (var f=0;f<=q;f++)
+ 
+      setDelay(f);
+           }
+         }
+         else
+           if ($.inArray(3,lastArray)!== -1 ){
+           
+           pushBool=false;
+         new Audio( 'https://s3.amazonaws.com/freecodecamp/simonSound3.mp3').play()
+      $("#ark3").animate({opacity: "1"},1000)
+  $("#ark3").animate({opacity: "0.5"} , 100)
+ allClicks.push(3)                                                         
+         
+           
+         clickArray.push(3)
+         
+           }
+         
+                                                     
+                                                         }
+       document.getElementById("ark4").onclick=function(){
+         
+         if (buttonArray[clickArray.length]!=4){
+            
+       alert("Wrong!")
+           match=[];
+           clickArray=[]
+           pushBool=true;
+           if (strict==true)
+             startOver()
+           else{
+           for (var f=0;f<=q;f++)
+ 
+      setDelay(f);
+           }
+         }
+         else
+           if ($.inArray(4,lastArray)!== -1 ){
+         
+           pushBool=false;
+         new Audio( 'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3').play()
+      $("#ark4").animate({opacity: "1"},1000)
+  $("#ark4").animate({opacity: "0.5"} , 100)
+ allClicks.push(4)        
+         
+           
+         clickArray.push(4)
+         
+         }
+         
+         }
+     var last=clickArray[clickArray.length-1];
+     storage.push(q); 
+      
+      
+ 
+
+   $('#ark' + buttonArray[q]).click(function (){  
+     var big=Math.max.apply(null,storage); 
+   
+
+     if (q==big){
+      
+       
+       if (pushBool!=true && big==clickArray.length){
+         new Audio( 'https://s3.amazonaws.com/freecodecamp/simonSound'+buttonArray[big]+'.mp3').play()
+      $("#ark"+buttonArray[big]).animate({opacity: "1"},1000)
+  $("#ark"+buttonArray[big]).animate({opacity: "0.5"} , 100)
+    clickArray.push(buttonArray[big])  
+         
+       }
+        
+       
+       
+          
+  
+      
+       for (var o=0;o<=big;o++)  
+  
+   if ( clickArray[(clickArray.length-1-big)+o]==buttonArray[o])  {
+     
+  
+     match.push(buttonArray[o])
+       
+
+ if (match.length>big){
+   function more(){
+for (var f=0;f<=big+1;f++)
+ 
+    setDelay(f)
+ document.getElementById("count2").innerHTML=(q+1);
+   }
+   
+   setTimeout(more, 1000);
+   if (q<=19)
+    work(q+1)
+   
+   else if (q==20){
+     alert ("You win!")
+     q=0;
+     big=-1;
+     next++;
+     startOver()
+   }
+   
+}
+   
+     
+       
+
+     }
+}}  )
+         
+   }
+
+   work(c) }     
+      
+                                    
+  
+
+
